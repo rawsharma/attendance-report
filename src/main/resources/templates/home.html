@@ -1,0 +1,47 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head xmlns:th="http://www.w3.org/1999/xhtml">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+
+	<a href="">View Students</a>
+<p>
+	You can choose any presentation framework that could be integrated with
+	Spring
+	</p>
+	<p>
+		The only user is "<b>super</b>" and the password is "<b>pw</b>"
+	</p>
+
+	<div class="container">
+
+		<table class="table">
+			<tr>
+				<th>Student id</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>visaStatus</th>
+				<th>Status</th>
+				<th>EntryDate</th>
+				<th></th>
+			</tr>
+			<!--/*@thymesVar id="s" type="edu.mum.cs.projects.attendance.domain.entity.Student"*/-->
+			<tr th:each="s : ${students}">
+<!--
+				<td th:text="${s.}">today</td>
+
+-->				<td><span th:text="${s.id}">StudentId</span></td>
+				<td><span th:text="${s.firstName}">First</span><span th:text="${s.lastName}">Last</span> </td>
+				<td th:text="${s.emailaddress}">email</td>
+				<td th:text="${s.status}">status</td>
+				<td th:text="${s.entryDate}">Date</td>
+				<td><button th:onclick="'javascript:showOrders(' + ${s.id} + ')'">view</button></td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>
